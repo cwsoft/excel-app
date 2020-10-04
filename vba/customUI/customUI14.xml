@@ -1,0 +1,32 @@
+<customUI xmlns="http://schemas.microsoft.com/office/2009/07/customui" onLoad="tabApp_onLoad">
+	<ribbon startFromScratch="true">
+		<tabs>
+			<tab id="tabApp" label="Excel Application" insertAfterMso="TabHome">
+				<group id="appGrpFile" label="File Options" autoScale="true">
+					<button id="appSave" label="Save" imageMso="FileSave" size="large" supertip="Save Application" onAction="appSave_onAction" />
+					<button id="appPrint" label="Print" imageMso="FilePrint" size="large" supertip="Print actual Application sheet" onAction="appPrint_onAction" />
+					<button id="appExit" label="Exit" image="App-Exit" size="large" supertip="Exit Application" onAction="appExit_onAction" />
+				</group>				
+
+				<group id="appGrpSettings" label="Settings" autoScale="true">
+					<button id="appSettings" label="Settings" imageMso="ControlsGallery" size="large" supertip="Application Settings" onAction="appSettings_onAction" getEnabled="tabApp_Enabled" />
+				</group>
+
+				<group id="appGrpHelp" label="Help" autoScale="true" >
+					<button id="appAbout" label="About" imageMso="Info" size="large" supertip="Infos about the Excel Application (CTRL+SHIFT+I)" onAction="appAbout_onAction" />
+					<button id="appHelp" label="Help" imageMso="Help" size="large" supertip="Excel Application help file (F1)" onAction="appHelp_onAction" getVisible="tabApp_Visible" />
+				</group>
+			</tab>
+		</tabs>
+	</ribbon>
+
+	<contextMenus>
+		<contextMenu idMso="ContextMenuCell">
+			<menu id="appContextMenu" label="App context menu" insertBeforeMso="Cut" imageMso="P" getVisible="tabApp_Visible">
+				<button id="appContextMenu1" label="Action 1" imageMso="ReviewNewComment" onAction="test" insertBeforeMso="Cut" />
+				<button id="appContextMenu2" label="Action 2" imageMso="ReviewDeleteComment" onAction="test" insertBeforeMso="Cut" />
+			</menu>
+			<menuSeparator id="appMenuSeparator" insertBeforeMso="Cut" />
+		</contextMenu>
+	</contextMenus>
+</customUI>
